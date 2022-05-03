@@ -251,13 +251,13 @@ controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
 let decoration_cords = [
 10,
-50,
-90,
-150
+40,
+80,
+120
 ]
 for (let index = 0; index < 2; index++) {
-    get_random_clamperl().setPosition(decoration_cords.removeAt(randint(0, 4)), 120)
-    get_random_lobster().setPosition(decoration_cords.removeAt(randint(0, 4)), 120)
+    get_random_clamperl().setPosition(decoration_cords.removeAt(randint(-1, 4)), 120)
+    get_random_lobster().setPosition(decoration_cords.removeAt(randint(-1, 4)), 120)
 }
 game.onUpdateInterval(1000, function () {
     backdrop = !(backdrop)
