@@ -150,8 +150,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 sprites.onCreated(SpriteKind.Projectile, function (sprite) {
     sprite.setVelocity(0, 25)
 })
-let trash: Sprite = null
 let trash2: Sprite = null
+let trash: Sprite = null
 let score = 0
 let lives_left = 0
 tiles.setCurrentTilemap(tilemap`backdrop1`)
