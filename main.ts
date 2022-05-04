@@ -151,6 +151,7 @@ sprites.onCreated(SpriteKind.Projectile, function (sprite) {
     sprite.setVelocity(0, 25)
 })
 let trash: Sprite = null
+let trash2: Sprite = null
 let score = 0
 let lives_left = 0
 tiles.setCurrentTilemap(tilemap`backdrop1`)
@@ -178,7 +179,30 @@ let boat = sprites.create(img`
     ....................
     ....................
     `, SpriteKind.Enemy)
+let boat2 = sprites.create(img`
+    ....................
+    ....................
+    ....................
+    .........ee.........
+    ........eeee........
+    ......eee999e.......
+    .....ee99999ee......
+    ....ee99989999e.....
+    ...ee9918999999e....
+    ...e99189999999e....
+    eeeeeeeeeeeeeeeeeeee
+    eeddddddddddddddddee
+    .eeddddddddddddddee.
+    ..eeddddddddddddee..
+    ...eeddddddddddee...
+    ....eeddddddddee....
+    .....eeeeeeeeee.....
+    ....................
+    ....................
+    ....................
+    `, SpriteKind.Enemy)
 boat.setPosition(10, 10)
+boat2.setPosition(140, 10)
 game.showLongText("Collect plastic bags thrown in the sea by the BOAT", DialogLayout.Bottom)
 let fish = sprites.create(img`
     . . . . . . . . c c c c . . . . 
@@ -247,6 +271,9 @@ fish2.setBounceOnWall(true)
 boat.setVelocity(50, 0)
 boat.setBounceOnWall(true)
 boat.setPosition(10, 10)
+boat2.setVelocity(50, 0)
+boat2.setBounceOnWall(true)
+boat2.setPosition(140, 10)
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
 let decoration_cords = [
@@ -267,7 +294,7 @@ game.onUpdateInterval(1000, function () {
         tiles.setCurrentTilemap(tilemap`backdrop2`)
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(1000, function () {
     trash = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . d d . . . . . . . . . . . . 
@@ -287,6 +314,25 @@ game.onUpdateInterval(500, function () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Projectile)
     trash.setPosition(boat.x, boat.y + 10)
+    trash2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . d d . . . . . . . . . . . . 
+        . d d d d . . . . . d d d d . . 
+        . d . . d . . . . . d d d d . . 
+        . d . . d . . . . . d . . d . . 
+        . d . . d . . . . . d . . d . . 
+        . d d d d . . . . . d . . d . . 
+        . . d d d d d d d d d d d d . . 
+        . . d d d d d d d d d d d d . . 
+        . . . d d d d d d d d d d d . . 
+        . . . . d d d d d d d d d d . . 
+        . . . . d d d d d d d d . . . . 
+        . . . . . . . d d d d . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Projectile)
+    trash2.setPosition(boat2.x, boat2.y + 10)
     if (randint(-1, 1) == 0) {
         boat.setVelocity(randint(100, 200), 0)
         fish.setVelocity(randint(-50, -25), 0)
